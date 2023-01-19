@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabelas</title>
+
+  <style>
+    body{
+      font-family: Arial, Helvetica, sans-serif
+    }
+
+    table{
+      width: 600px;
+      border-collapse: collapse;
+      margin: 20px;
+    }
+    tbody > tr:nth-child(even){
+      background-color: #f9ffb8 ;
+    }
+
+    thead > tr > th{
+      position: sticky;
+      top: -1px;
+      background-color: yellow;
+    }
+
+    td, th{
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    td.num{
+      text-align: end;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <caption>Livros</caption>
+    <thead>
+      <tr>
+        <th>Títulos</th>
+        <th>Páginas Lidas</th>
+        <th>Páginas Totais</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>A Arte Da Guerra</td>
+        <td class="num">x</td>
+        <td class="num">x</td>
+      </tr>
+      <tr>
+        <td>100 Endgames You Must Know</td>
+        <td class="num">x</td>
+        <td class="num">x</td>
+      </tr>
+      <tr>
+        <td>Meu Sistema</td>
+        <td class="num">x</td>
+        <td class="num">x</td>
+      </tr>
+      <tr>
+        <td>Teorica Das Cores</td>
+        <td class="num">x</td>
+        <td class="num">x</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Total De Páginas Lidas</th>
+        <td class="num" colspan="2">x</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>
