@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redes Sociais</title>
+  <style>
+    @charset "utf-8";
+
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body{
+      background: url(imagens/frame-iphone.png) no-repeat center center fixed, url(imagens/fundo-madeira.jpg) no-repeat center center fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    iframe{
+      padding-top: 10px;
+      padding-left: 5px;
+      width: 270px;
+      height: 470px;
+      border: 0px;
+    }
+
+    div{
+      position: absolute;
+      right: 1px;
+      top: 1px;
+    }
+
+    img{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+
+    a{
+      display: block;
+    }
+    a:hover{
+      position: relative;
+      top: -10px;
+      left: -10px;
+    }
+
+    img:hover{
+      box-shadow: 2px 2px 1px 3px rgba(0, 0, 0, 0.213);
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+  <a href="home.html" target="iframe"><img src="imagens/logo-home.jpg" alt="logo-home" ></a>
+  <a href="facebook.html" target="iframe"><img src="imagens/logo-facebook.jpg" alt="" ></a>
+  <a href="github.html" target="iframe"><img src="imagens/logo-github.jpg" alt="" ></a>
+  <a href="instagram.html" target="iframe"><img src="imagens/logo-instagram.jpg" alt="" ></a>
+  <a href="twitter.html" target="iframe"><img src="imagens/logo-twitter.jpg" alt="" ></a>
+  <a href="youtube.html" target="iframe"><img src="imagens/logo-youtube.jpg" alt="" ></a>
+  </div>
+
+  <iframe src="home.html" name="iframe"></iframe>
+
+</body>
+</html>
