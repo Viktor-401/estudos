@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pq-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <form action="formulario.php" method="get" autocomplete="on">
+
+    <div>
+      <label for="inome">Seu nome:</label>
+      <input type="text" name="nome" id="inome" autocomplete="name"><br>
+
+      <label for="iemail">Seu email:</label>
+      <input type="email" name="email" id="iemail" autocomplete="email"><br>
+      <label for="isen">Senha:</label>
+      <input type="password" name="sen" id="isen" autocomplete="current-password"><br>
+
+      <label for="idata">Data de nasciment:</label>
+      <input type="date" name="data" id="idata" autocomplete="bday-day"><br>
+
+      <label for="iidade">Sua idade:</label>
+      <input type="range" name="idade" id="iidade" min="-1" max="200"><br>
+
+      <label for="ihora">Horário:</label>
+      <input type="time" name="hora" id="ihora"><br>
+
+      <label for="iarq">Imagem de perfil:</label>
+      <input type="file" name="arq" id="iarq"><br>
+
+      <fieldset>
+        <legend>Video Game Favorito:</legend>
+        <label for="ijogo_ct">Chrono Trigger</label>
+        <input type="radio" name="jogo" id="ijogo_ct" value="CT" checked> <br>
+        <label for="ijogo_cs">Counter Strike</label>
+        <input type="radio" name="jogo" id="ijogo_cs" value="CS">
+      </fieldset>
+
+      <fieldset>
+        <legend>Caixas selecionavéis:</legend>
+        <input type="checkbox" name="cb1" id="icb1"><br>
+        <input type="checkbox" name="cb2" id="icb2"><br>
+        <input type="checkbox" name="cb3" id="icb3"><br>
+        <input type="checkbox" name="cb4" id="icb4"checked>
+      </fieldset>
+
+      <label for="iestado">Seu estado:</label>
+      <select name="estado" id="iestado">
+        <option value="">---Escolha---</option>
+        <optgroup label="Chads">
+          <option value="BA">Bahia</option>
+          <option value="CE">Céara</option>
+        </optgroup>
+        <optgroup label="Cringes">
+          <option value="SP">São Paulo</option>
+          <option value="RJ">Rio de Janeiro</option>
+        </optgroup>
+      </select><br>
+
+      <label for="ixadrez">Aberturas de Xadrez:</label>
+      <input type="text" name="xadrez" id="ixadrez" list="lista">
+      <datalist id="lista">
+        <option value="Ruy Lopez">Ruy Lopez</option>
+        <option value="Gambito da Dama">Gambito da Dama</option>
+        <option value="Grob">Grob</option>
+      </datalist><br>
+
+      <label for="imsg">Mande uma mensagem:</label><br>
+      <textarea name="msg" id="imsg" cols="30" rows="10">Digite sua mensagem...</textarea>
+
+      <br><br>
+      <input type="reset" value="reset">
+      <input type="submit" value="enviar">
+    </div>
+
+  </form>
+
+</body>
+</html>
