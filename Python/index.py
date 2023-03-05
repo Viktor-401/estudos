@@ -1,7 +1,8 @@
-#metas: comando voltar, menu de navegação na parte de visualização.
+#metas: comando voltar, menu de navegação na parte de visualização, encerrar com todos os 7 dias
 
 
 #variáveis gerais
+
 seg = ter = qua = qui = sex = sab = dom = dia = app = ciclo = ''
 dados = -1
 
@@ -22,7 +23,7 @@ while ciclo != 'nao':
   while int(dados) < 0:
     try:
       dados = int(input('Digite a quantidade de dados, em bytes, utilizada:'))
-    except: print
+    except: pass
   #atribuições aos dias
   if dia == 'seg':seg += str(app) + '#' + str(dados) + '@'
   if dia == 'ter':ter += str(app) + '#' + str(dados) + '@'
@@ -39,121 +40,121 @@ while ciclo != 'nao':
 
 #variáveis do tratamento
 
-opcao = ''
-info = ''
-texto = ''
-totalBytes = 0
-z=''
+opcao = opcaoapp = info = texto1 = texto2 = texto3 = z = ''
+totalBytes = totalTotalBytes= 0
 
 #tratamento de dados para visualização
+
+
+
+    #opção 1
+
+# if opcao == '1':
+#   while opcaoapp != 'facebook' and opcaoapp != 'whatsapp' and opcaoapp != 'instagram' and opcaoapp != 'chrome' and opcaoapp != 'outros':
+#     opcaoapp = input('Digite o aplicativo desejado:\nfacebook \nwhatsapp\ninstagram\nchrome \noutros \n')
+
+    # segunda
+for w in ('facebook#whatsapp#instagram#chrome#outros#'):
+  if w != '#':
+    opcaoapp += w
+  else:
+    for x in seg:
+      if x != '@':
+        z += x
+      else:
+        app = z[:z.index('#')]
+        dados = z[z.index('#')+1:]
+        z = ''
+      totalTotalBytes += int(dados)
+        if app == opcaoapp:
+          texto1 += '{} usou {} bytes na segunda-feira.\n'.format(app,dados)
+          totalBytes += int(dados)
+          break
+      #terça
+    for x in ter:
+      if x != '@':
+        z += x
+      else:
+        app = z[:z.index('#')]
+        dados = z[z.index('#')+1:]
+        z = ''
+        totalTotalBytes += int(dados)
+        if app == opcaoapp:
+           texto1 += '{} usou {} bytes na terça-feira.\n'.format(app,dados)
+           totalBytes += int(dados)
+           break
+      #quarta
+    for x in qua:
+      if x != '@':
+        z += x
+      else:
+        app = z[:z.index('#')]
+        dados = z[z.index('#')+1:]
+        z = ''
+        totalTotalBytes += int(dados)
+        if app == opcaoapp:
+           texto1 += '{} usou {} bytes na quarta-feira.\n'.format(app,dados)
+           totalBytes += int(dados)
+           break
+      #quinta
+    for x in qui:
+      if x != '@':
+        z += x
+      else:
+        app = z[:z.index('#')]
+        dados = z[z.index('#')+1:]
+        z = ''
+        totalTotalBytes += int(dados)
+        if app == opcaoapp:
+           texto1 += '{} usou {} bytes na quinta-feira.\n'.format(app,dados)
+           totalBytes += int(dados)
+           break
+      #sexta
+    for x in sex:
+      if x != '@':
+        z += x
+      else:
+        app = z[:z.index('#')]
+        dados = z[z.index('#')+1:]
+        z = ''
+        totalTotalBytes += int(dados)
+        if app == opcaoapp:
+           texto1 += '{} usou {} bytes na sexta-feira.\n'.format(app,dados)
+           totalBytes += int(dados)
+           break
+      #sábado
+    for x in sab:
+      if x != '@':
+        z += x
+      else:
+        app = z[:z.index('#')]
+        dados = z[z.index('#')+1:]
+        z = ''
+        totalTotalBytes += int(dados)
+        if app == opcaoapp:
+           texto1 += '{} usou {} bytes no sábado.\n'.format(app,dados)
+           totalBytes += int(dados)
+           break
+      #domingo
+    for x in dom:
+      if x != '@':
+        z += x
+      else:
+        app = z[:z.index('#')]
+        dados = z[z.index('#')+1:]
+        totalTotalBytes += int(dados)
+        z = ''
+        if app == opcaoapp:
+           totalBytes += int(dados)
+           texto1 += '{} usou {} bytes no domingo.\n'.format(app,dados)
+           break
+    w = ''
+texto1 += '{} usou um total de {} bytes na semana.'.format(app,totalBytes)
 
 while opcao != '1' and opcao != '2' and opcao != '3':
   opcao = input('Escolha a opção desejada:\n1 - Total de dados usados por cada aplicativo por dia e na semana inteira.\n2 - Total de dados totais usados em cada dia e na semana inteira.\n3 - Média diaria de consumo total de dados na semana e por aplicativo.')
 
-    #opção 1
+if opcao == 1:print(texto1)
 
-if opcao == '1':
-  opcao = ''
-  while opcao != 'facebook' and opcao != 'whatsapp' and opcao != 'instagram' and opcao != 'chrome' and opcao != 'outros':
-    opcao = input('Digite o aplicativo desejado:\nfacebook \nwhatsapp\ninstagram\nchrome \noutros \n')
+  #opção 2
 
-    # segunda
-
-  for x in seg:
-    if x != '@':
-      z += x
-    else:
-      app = z[:z.index('#')]
-      dados = z[z.index('#')+1:]
-      z = ''
-      if app == opcao:
-        texto += '{} usou {} bytes na segunda-feira.\n'.format(app,dados)
-        totalBytes += int(dados)
-        break
-
-    #terça
-
-  for x in ter:
-    if x != '@':
-      z += x
-    else:
-      app = z[:z.index('#')]
-      dados = z[z.index('#')+1:]
-      z = ''
-      if app == opcao:
-         texto += '{} usou {} bytes na terça-feira.\n'.format(app,dados)
-         totalBytes += int(dados)
-         break
-    #quarta
-
-  for x in qua:
-    if x != '@':
-      z += x
-    else:
-      app = z[:z.index('#')]
-      dados = z[z.index('#')+1:]
-      z = ''
-      if app == opcao:
-         texto += '{} usou {} bytes na quarta-feira.\n'.format(app,dados)
-         totalBytes += int(dados)
-         break
-
-    #quinta
-
-  for x in qui:
-    if x != '@':
-      z += x
-    else:
-      app = z[:z.index('#')]
-      dados = z[z.index('#')+1:]
-      z = ''
-      if app == opcao:
-         texto += '{} usou {} bytes na quinta-feira.\n'.format(app,dados)
-         totalBytes += int(dados)
-         break
-
-    #sexta
-
-  for x in sex:
-    if x != '@':
-      z += x
-    else:
-      app = z[:z.index('#')]
-      dados = z[z.index('#')+1:]
-      z = ''
-      if app == opcao:
-         texto += '{} usou {} bytes na sexta-feira.\n'.format(app,dados)
-         totalBytes += int(dados)
-         break
-
-    #sábado
-
-  for x in sab:
-    if x != '@':
-      z += x
-    else:
-      app = z[:z.index('#')]
-      dados = z[z.index('#')+1:]
-      z = ''
-      if app == opcao:
-         texto += '{} usou {} bytes no sábado.\n'.format(app,dados)
-         totalBytes += int(dados)
-         break
-
-    #domingo
-
-  for x in dom:
-    if x != '@':
-      z += x
-    else:
-      app = z[:z.index('#')]
-      dados = z[z.index('#')+1:]
-      z = ''
-      if app == opcao:
-         totalBytes += int(dados)
-         texto += '{} usou {} bytes no domingo.\n'.format(app,dados)
-         break
-  texto += '{} usou um total de {} bytes na semana.'.format(app,totalBytes)
-  print(texto)
-
-    #opção 2
