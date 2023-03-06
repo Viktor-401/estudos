@@ -32,7 +32,7 @@ while ciclo != 'nao':
   if dia == 'sab':sab += str(app) + '#' + str(dados) + '@'
   if dia == 'sex':sex += str(app) + '#' + str(dados) + '@'
   if dia == 'dom':dom += str(app) + '#' + str(dados) + '@'
-
+  print(seg, ter, qua, qui, sex, sab , dom)
   ciclo = input('Deseja continuar? Digite " nao " para parar o programar e receber os dados coletados.')
 
   dia = app = ''
@@ -41,23 +41,16 @@ while ciclo != 'nao':
 #variáveis do tratamento
 
 opcao = opcaoapp = info = texto1 = texto2 = texto3 = z = ''
-totalBytes = totalTotalBytes= 0
+totalBytes = totalTotalBytes = totalBytesDia = 0
 
 #tratamento de dados para visualização
 
 
-
-    #opção 1
-
-# if opcao == '1':
-#   while opcaoapp != 'facebook' and opcaoapp != 'whatsapp' and opcaoapp != 'instagram' and opcaoapp != 'chrome' and opcaoapp != 'outros':
-#     opcaoapp = input('Digite o aplicativo desejado:\nfacebook \nwhatsapp\ninstagram\nchrome \noutros \n')
-
-    # segunda
 for w in ('facebook#whatsapp#instagram#chrome#outros#'):
   if w != '#':
     opcaoapp += w
   else:
+    # segunda
     for x in seg:
       if x != '@':
         z += x
@@ -65,12 +58,14 @@ for w in ('facebook#whatsapp#instagram#chrome#outros#'):
         app = z[:z.index('#')]
         dados = z[z.index('#')+1:]
         z = ''
-      totalTotalBytes += int(dados)
+        totalBytesDia += int(dados)
         if app == opcaoapp:
-          texto1 += '{} usou {} bytes na segunda-feira.\n'.format(app,dados)
+          texto1 += '{} : {} bytes, segunda-feira.\n'.format(app,dados)
+          totalTotalBytes += int(dados)
           totalBytes += int(dados)
-          break
-      #terça
+    texto2 += '#Segunda-feira : {} bytes.\n'.format(totalBytesDia)
+    totalBytesDia = 0
+    #terça
     for x in ter:
       if x != '@':
         z += x
@@ -78,12 +73,14 @@ for w in ('facebook#whatsapp#instagram#chrome#outros#'):
         app = z[:z.index('#')]
         dados = z[z.index('#')+1:]
         z = ''
-        totalTotalBytes += int(dados)
+        totalBytesDia += int(dados)
         if app == opcaoapp:
-           texto1 += '{} usou {} bytes na terça-feira.\n'.format(app,dados)
+           texto1 += '{} : {} bytes, terça-feira.\n'.format(app,dados)
+           totalTotalBytes += int(dados)
            totalBytes += int(dados)
-           break
-      #quarta
+    texto2 += 'Terça-feira : {} bytes.\n'.format(totalBytesDia)
+    totalBytesDia = 0
+    #quarta
     for x in qua:
       if x != '@':
         z += x
@@ -91,12 +88,14 @@ for w in ('facebook#whatsapp#instagram#chrome#outros#'):
         app = z[:z.index('#')]
         dados = z[z.index('#')+1:]
         z = ''
-        totalTotalBytes += int(dados)
+        totalBytesDia += int(dados)
         if app == opcaoapp:
-           texto1 += '{} usou {} bytes na quarta-feira.\n'.format(app,dados)
+           texto1 += '{} : {} bytes, quarta-feira.\n'.format(app,dados)
+           totalTotalBytes += int(dados)
            totalBytes += int(dados)
-           break
-      #quinta
+    texto2 += 'Quarta-feira : {} bytes.\n'.format(totalBytesDia)
+    totalBytesDia = 0
+    #quinta
     for x in qui:
       if x != '@':
         z += x
@@ -104,12 +103,14 @@ for w in ('facebook#whatsapp#instagram#chrome#outros#'):
         app = z[:z.index('#')]
         dados = z[z.index('#')+1:]
         z = ''
-        totalTotalBytes += int(dados)
+        totalBytesDia += int(dados)
         if app == opcaoapp:
-           texto1 += '{} usou {} bytes na quinta-feira.\n'.format(app,dados)
+           texto1 += '{} : {} bytes, quinta-feira.\n'.format(app,dados)
+           totalTotalBytes += int(dados)
            totalBytes += int(dados)
-           break
-      #sexta
+    texto2 += 'Quinta-feira : {} bytes.\n'.format(totalBytesDia)
+    totalBytesDia = 0
+    #sexta
     for x in sex:
       if x != '@':
         z += x
@@ -117,12 +118,14 @@ for w in ('facebook#whatsapp#instagram#chrome#outros#'):
         app = z[:z.index('#')]
         dados = z[z.index('#')+1:]
         z = ''
-        totalTotalBytes += int(dados)
+        totalBytesDia += int(dados)
         if app == opcaoapp:
-           texto1 += '{} usou {} bytes na sexta-feira.\n'.format(app,dados)
+           texto1 += '{} : {} bytes, sexta-feira.\n'.format(app,dados)
+           totalTotalBytes += int(dados)
            totalBytes += int(dados)
-           break
-      #sábado
+    texto2 += 'Sexta-feira : {} bytes.\n'.format(totalBytesDia)
+    totalBytesDia = 0
+    #sábado
     for x in sab:
       if x != '@':
         z += x
@@ -130,31 +133,37 @@ for w in ('facebook#whatsapp#instagram#chrome#outros#'):
         app = z[:z.index('#')]
         dados = z[z.index('#')+1:]
         z = ''
-        totalTotalBytes += int(dados)
+        totalBytesDia += int(dados)
         if app == opcaoapp:
-           texto1 += '{} usou {} bytes no sábado.\n'.format(app,dados)
+           texto1 += '{} : {} bytes, sábado.\n'.format(app,dados)
+           totalTotalBytes += int(dados)
            totalBytes += int(dados)
-           break
-      #domingo
+    texto2 += 'Sábado : {} bytes.\n'.format(totalBytesDia)
+    totalBytesDia = 0
+    #domingo
     for x in dom:
       if x != '@':
         z += x
       else:
         app = z[:z.index('#')]
         dados = z[z.index('#')+1:]
-        totalTotalBytes += int(dados)
+        totalBytesDia += int(dados)
         z = ''
         if app == opcaoapp:
+           totalTotalBytes += int(dados)
            totalBytes += int(dados)
-           texto1 += '{} usou {} bytes no domingo.\n'.format(app,dados)
-           break
-    w = ''
-texto1 += '{} usou um total de {} bytes na semana.'.format(app,totalBytes)
+           texto1 += '{} : {} bytes, domingo.\n'.format(app,dados)
+    texto1 += '{} : {} bytes, na semana.\n'.format(opcaoapp,totalBytes)
+    totalBytes = 0
+    texto2 += 'No domingo : {} bytes.\n'.format(totalBytesDia)
+    totalBytesDia = 0
+    texto2 += 'Semana : {} bytes.\n'.format(totalTotalBytes)
+    opcaoapp = ''
+texto2 = texto2[texto2.rindex('#')+1:]
 
 while opcao != '1' and opcao != '2' and opcao != '3':
   opcao = input('Escolha a opção desejada:\n1 - Total de dados usados por cada aplicativo por dia e na semana inteira.\n2 - Total de dados totais usados em cada dia e na semana inteira.\n3 - Média diaria de consumo total de dados na semana e por aplicativo.')
 
-if opcao == 1:print(texto1)
-
-  #opção 2
+if opcao == '1':print(texto1)
+if opcao == '2':print(texto2)
 
