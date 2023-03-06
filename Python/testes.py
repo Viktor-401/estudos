@@ -1,11 +1,10 @@
-texto1 = 'aaaaaa#bbbbbbbbbbbbbbbbb#cccccccccc#dddddddddddddddddd#eeeeeeeeeeeeeeeeee#'
+seg = 'chrome#90@facebook#46@whatsapp#89@'
+app = 'facebook'
+dados = '7893'
+teste = seg[seg.find(app):]
+print(seg.find(app))
+print(teste)
+seg = seg.replace(seg[seg.find(app):teste.find('@')+seg.find(app)],str(app) + '#' + str(dados))
+print(seg)
 
-print(texto1[:texto1.index('#')])
 
-print(texto1[texto1.index('#')+1:texto1.index('#',texto1.index('#')+1)])
-
-print(texto1[texto1.index('#',texto1.index('#')+1)+1:texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)])
-
-print(texto1[texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1:texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1)])
-
-print(texto1[texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1)+1:texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1)+1)])

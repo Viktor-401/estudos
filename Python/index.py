@@ -2,12 +2,12 @@
 #metas:
 #***comando voltar[],
 #***encerrar com todos os 7 dias(com poossibilidade de voltar)[],
-#***reescrever dados[],
+#***reescrever dados[X],
 #***separar resultados opção 1 [X]
 
 #variáveis gerais
 
-seg = ter = qua = qui = sex = sab = dom = dia = app = ciclo = ''
+seg = ter = qua = qui = sex = sab = dom = dia = app = ciclo = teste = ''
 dados = -1
 
 #programa
@@ -35,25 +35,53 @@ while True:
 
     if dia == 'seg':
       if seg.find(app) != -1:
+        teste = seg[seg.find(app):]
+        seg = seg.replace(seg[seg.find(app):teste.find('@')+seg.find(app)],str(app) + '#' + str(dados))
+      else:
         seg += str(app) + '#' + str(dados) + '@'
+
     if dia == 'ter':
       if ter.find(app) != -1:
+        teste = ter[ter.find(app):]
+        ter = ter.replace(ter[ter.find(app):teste.find('@')+ter.find(app)],str(app) + '#' + str(dados))
+      else:
         ter += str(app) + '#' + str(dados) + '@'
+
     if dia == 'qua':
       if qua.find(app) != -1:
+        teste = qua[qua.find(app):]
+        qua = qua.replace(qua[qua.find(app):teste.find('@')+qua.find(app)],str(app) + '#' + str(dados))
+      else:
         qua += str(app) + '#' + str(dados) + '@'
+
     if dia == 'qui':
       if qui.find(app) != -1:
+        teste = qui[qui.find(app):]
+        qui = qui.replace(qui[qui.find(app):teste.find('@')+qui.find(app)],str(app) + '#' + str(dados))
+      else:
         qui += str(app) + '#' + str(dados) + '@'
+
     if dia == 'sab':
       if sab.find(app) != -1:
+        teste = sab[sab.find(app):]
+        sab = sab.replace(sab[sab.find(app):teste.find('@')+sab.find(app)],str(app) + '#' + str(dados))
+      else:
         sab += str(app) + '#' + str(dados) + '@'
+
     if dia == 'sex':
       if sex.find(app) != -1:
+        teste = sex[sex.find(app):]
+        sex = sex.replace(sex[sex.find(app):teste.find('@')+sex.find(app)],str(app) + '#' + str(dados))
+      else:
         sex += str(app) + '#' + str(dados) + '@'
+
     if dia == 'dom':
       if dom.find(app) != -1:
+        teste = dom[dom.find(app):]
+        dom = dom.replace(dom[dom.find(app):teste.find('@')+dom.find(app)],str(app) + '#' + str(dados))
+      else:
         dom += str(app) + '#' + str(dados) + '@'
+
     print(seg, ter, qua, qui, sex, sab , dom)
     ciclo = input('Deseja continuar? Digite " nao " para parar o programar e receber os dados coletados.')
 
@@ -207,9 +235,9 @@ while True:
     if opcao == '3':print(texto3)
 
     if opcao == '1':
-      opcao = '0'
-      while opcao != '1' and opcao != '2' and opcao != '3' and opcao != '4' and opcao != '5':
-        opcao = input('Qual aplicativo deseja ver o consumo de dados?\n1 - facebook\n2 - whatsapp\n3 - instagram\n4 - chrome\n5 - outros')
+      opcao = ''
+      while opcao != '1' and opcao != '2' and opcao != '3' and opcao != '4' and opcao != '5' and opcao != '6':
+        opcao = input('Qual aplicativo deseja ver o consumo de dados?\n1 - facebook\n2 - whatsapp\n3 - instagram\n4 - chrome\n5 - outros\n6 - todos')
       if opcao == '1':print(texto1[:texto1.index('#')])
       if opcao == '2':print(texto1[texto1.index('#')+1:texto1.index('#',texto1.index('#')+1)])
       if opcao == '3':
@@ -218,4 +246,8 @@ while True:
         print(texto1[texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1:texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1)])
       if opcao == '5':
         print(texto1[texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1)+1:texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1)+1)])
+      if opcao == '6':
+        print(texto1.replace('#',''))
     ciclo = input('Digite " voltar " para retornar à etapa de inserir dados.\nPressione enter para continuar.')
+    opcao = dia = app = ''
+    dados = -1
