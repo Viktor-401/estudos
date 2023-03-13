@@ -1,34 +1,27 @@
-
-#metas:
-#***comando voltar[],
-#***encerrar com todos os 7 dias(com poossibilidade de voltar)[],
-#***reescrever dados[X],
-#***separar resultados opção 1 [X]
-
 #variáveis gerais
 
 seg = ter = qua = qui = sex = sab = dom = dia = app = ciclo = teste = ''
 dados = -1
-
+fimAuto = 0
+linha = '////////////////////////////////////////////////////////////////////////\n'
 #programa
 while True:
-  input('Este é o programa de monitoramento de dados. \nEm cada etapa digite as informações necessárias. \nCaso digite valores inválidos o programa requesitará os dados novamentes. \nCaso digite e envie valores indesejados, apenas digite: " voltar "\nPressione enter para continuar.')
+  input('%sEste é o programa de monitoramento de dados. \nEm cada etapa digite as informações necessárias. \nCaso digite valores inválidos o programa requesitará os dados novamentes. \nCaso digite e envie valores indesejados, apenas digite: " voltar "\nO programa mostrará os resultados automaticamente caso você preencha...\ntodos os dados de todos os aplicativos de todos os dias...\nvocê podera continuar editando a semana após o fim automatico...\ne os dados só serão mostrados novamente caso queira.\nPressione enter para continuar.'%linha)
 
   while ciclo != 'nao':
 
     #coleta de dados
-
     while dia != 'seg' and dia != 'ter' and dia != 'qua' and dia != 'qui' and dia != 'sex' and dia != 'sab' and dia != 'dom':
 
-      dia = input('Digite o dia de uso: \n seg -> segunda \n ter -> terça \n qua -> quarta \n qui -> quinta \n sex -> sexta \n sab -> sábado \n dom -> domingo \n')
+      dia = input('%sDigite o dia de uso: \n seg -> segunda \n ter -> terça \n qua -> quarta \n qui -> quinta \n sex -> sexta \n sab -> sábado \n dom -> domingo \n'%linha)
 
     while app != 'facebook' and app != 'whatsapp' and app != 'instagram' and app != 'chrome' and app != 'outros':
 
-      app = input('Digite o aplicativo usado: \n facebook \n whatsapp \n instagram \n chrome \n outros \n')
+      app = input('%sDigite o aplicativo usado: \n facebook \n whatsapp \n instagram \n chrome \n outros \n'%linha)
 
     while int(dados) < 0:
       try:
-        dados = int(input('Digite a quantidade de dados, em bytes, utilizada:'))
+        dados = int(input('%sDigite a quantidade de dados, em bytes, utilizada:'%linha))
       except: pass
 
     #atribuições aos dias
@@ -39,6 +32,7 @@ while True:
         seg = seg.replace(seg[seg.find(app):teste.find('@')+seg.find(app)],str(app) + '#' + str(dados))
       else:
         seg += str(app) + '#' + str(dados) + '@'
+        fimAuto +=1
 
     if dia == 'ter':
       if ter.find(app) != -1:
@@ -46,6 +40,7 @@ while True:
         ter = ter.replace(ter[ter.find(app):teste.find('@')+ter.find(app)],str(app) + '#' + str(dados))
       else:
         ter += str(app) + '#' + str(dados) + '@'
+        fimAuto +=1
 
     if dia == 'qua':
       if qua.find(app) != -1:
@@ -53,6 +48,7 @@ while True:
         qua = qua.replace(qua[qua.find(app):teste.find('@')+qua.find(app)],str(app) + '#' + str(dados))
       else:
         qua += str(app) + '#' + str(dados) + '@'
+        fimAuto +=1
 
     if dia == 'qui':
       if qui.find(app) != -1:
@@ -60,6 +56,7 @@ while True:
         qui = qui.replace(qui[qui.find(app):teste.find('@')+qui.find(app)],str(app) + '#' + str(dados))
       else:
         qui += str(app) + '#' + str(dados) + '@'
+        fimAuto +=1
 
     if dia == 'sab':
       if sab.find(app) != -1:
@@ -67,6 +64,7 @@ while True:
         sab = sab.replace(sab[sab.find(app):teste.find('@')+sab.find(app)],str(app) + '#' + str(dados))
       else:
         sab += str(app) + '#' + str(dados) + '@'
+        fimAuto +=1
 
     if dia == 'sex':
       if sex.find(app) != -1:
@@ -74,6 +72,7 @@ while True:
         sex = sex.replace(sex[sex.find(app):teste.find('@')+sex.find(app)],str(app) + '#' + str(dados))
       else:
         sex += str(app) + '#' + str(dados) + '@'
+        fimAuto +=1
 
     if dia == 'dom':
       if dom.find(app) != -1:
@@ -81,12 +80,17 @@ while True:
         dom = dom.replace(dom[dom.find(app):teste.find('@')+dom.find(app)],str(app) + '#' + str(dados))
       else:
         dom += str(app) + '#' + str(dados) + '@'
-
-    print(seg, ter, qua, qui, sex, sab , dom)
-    ciclo = input('Deseja continuar? Digite " nao " para parar o programar e receber os dados coletados.')
+        fimAuto +=1
 
     dia = app = ''
     dados = -1
+    print(seg, ter, qua, qui, sex, sab , dom)
+    if fimAuto == 35:
+      print(linha, 'Você preencheu todos os dias.')
+      fimAuto = 0
+      break
+    ciclo = input('%sDeseja continuar? Digite " nao " para parar o programar e receber os dados coletados.'%linha)
+
 
   #variáveis do tratamento
 
@@ -229,15 +233,16 @@ while True:
 
   while ciclo != 'voltar':
     while opcao != '1' and opcao != '2' and opcao != '3':
-      opcao = input('Escolha a opção desejada:\n1 - Total de dados usados por cada aplicativo por dia e na semana inteira.\n2 - Total de dados totais usados em cada dia e na semana inteira.\n3 - Média diária de consumo total de dados na semana e por aplicativo.')
+      opcao = input('%sEscolha a opção desejada:\n1 - Total de dados usados por cada aplicativo por dia e na semana inteira.\n2 - Total de dados totais usados em cada dia e na semana inteira.\n3 - Média diária de consumo total de dados na semana e por aplicativo.'%linha)
 
-    if opcao == '2':print(texto2)
-    if opcao == '3':print(texto3)
+    if opcao == '2':print(linha,texto2)
+    if opcao == '3':print(linha,texto3)
 
     if opcao == '1':
       opcao = ''
       while opcao != '1' and opcao != '2' and opcao != '3' and opcao != '4' and opcao != '5' and opcao != '6':
-        opcao = input('Qual aplicativo deseja ver o consumo de dados?\n1 - facebook\n2 - whatsapp\n3 - instagram\n4 - chrome\n5 - outros\n6 - todos')
+        opcao = input('%sQual aplicativo deseja ver o consumo de dados?\n1 - facebook\n2 - whatsapp\n3 - instagram\n4 - chrome\n5 - outros\n6 - todos'%linha)
+      print(linha)
       if opcao == '1':print(texto1[:texto1.index('#')])
       if opcao == '2':print(texto1[texto1.index('#')+1:texto1.index('#',texto1.index('#')+1)])
       if opcao == '3':
@@ -248,6 +253,8 @@ while True:
         print(texto1[texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1)+1:texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#',texto1.index('#')+1)+1)+1)+1)])
       if opcao == '6':
         print(texto1.replace('#',''))
-    ciclo = input('Digite " voltar " para retornar à etapa de inserir dados.\nPressione enter para continuar.')
+    ciclo = input('%sDigite " voltar " para retornar à etapa de inserir dados.\nPressione enter para continuar.'%linha)
+    if input('%sDigite " reset "para apagar todos os dados da semana atual e inserir uma nova.\nVocê pode optar por continuar editando a atual.'%linha) == 'reset':
+      seg = ter = qua = qui = sex = sab = dom = ''
     opcao = dia = app = ''
     dados = -1
